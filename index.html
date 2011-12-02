@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+
+<meta charset="utf-8" />
+<title>cubic-bezier.com</title>	
+<link href="style.css" rel="stylesheet" />
+<link rel="shortcut icon"  type="image/png" href="about:blank" />
+</head> 
+<body> 
+
+<header>
+	<h1>
+		<a href=""><code>cubic-bezier(<span id="values"><span
+		 id="P1x" class="param">0</span>,<span
+		 id="P1y" class="param">0</span>,<span
+		 id="P2x" class="param">.25</span>,<span
+		 id="P2y" class="param">1</span></span>)</code></a>
+		<button id="save">Save</button>
+	</h1>
+	<p><strong>This curve contains values out of range.</strong> But fear not young padawan! Just use <code>another value</code> as well for Webkit the <a href="https://bugs.webkit.org/show_bug.cgi?id=45761">bug #45761</a> fix propagates to most used versions.</p>
+</header>
+
+<div class="coordinate-plane"> 
+	<span class="control-point" id="P0"></span> 
+	<button class="control-point" id="P1" style="left:50px; top: 250px;"></button>
+	<button class="control-point" id="P2" style="left:250px; top: 250px;"></button>
+	<span class="control-point" id="P3"></span>
+
+	<canvas height="600" width="300" id="curve"></canvas>
+</div>
+
+<section id="preview">
+	<h1>
+		Preview &amp; compare
+		<button id="go">Go!</button>
+	</h1>
+	<p>
+		<label for="duration">Duration:</label>
+		<input type="range" id="duration" value="1" min="0.1" max="10" step="0.1" pattern="\d*\.?\d+" size="3" />
+		<output for="duration">1 second</output>
+	</p>
+	<canvas id="current" width="60" height="60"></canvas>
+	<canvas id="compare" width="60" height="60"></canvas>
+</section>
+
+<section id="library">
+	<h1>
+		Library
+		<button id="import">Import</button>
+		<button id="export">Export</button>
+	</h1>
+	<p>Click on a curve to compare it with the current one.</p>
+	<footer><strong>Tip:</strong> Right click on any library curve and select “Copy Link Address” to get a permalink to it which you can share with others</footer>
+	
+	<form id="importexport">
+		<label for="json">To import curves, paste the code below and click “Import”</label>
+		<label for="json">Copy the code and save to a file to export</label>
+		<textarea id="json"></textarea>
+		<button>Import</button>
+		<button>Close</button>
+	</form>
+</section>
+
+<footer>
+	Made by <a href="http://leaverou.me">Lea Verou</a> with care ✿ <a href="http://leaverou.me/2011/09/a-better-tool-for-cubic-bezier-easing/">About</a>
+	<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=me%40leaverou%2eme&lc=GR&item_name=Lea%20Verou&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" class="button" rel="nofollow">Donate</a>
+</footer>
+
+<script src="chainvas.min.js"></script> 
+<script src="environment.js"></script> 
+<script src="cubic-bezier.js"></script> 
+<script src="interaction.js"></script> 
+
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="LeaVerou" data-text="A better tool for generating cubic-bezier() easing functions!">Tweet</a>
+<script src="http://platform.twitter.com/widgets.js"></script>
+	 
+<script>_gaq = [['_setAccount', 'UA-25106441-3'], ['_trackPageview']];</script>
+<script src="http://www.google-analytics.com/ga.js" async></script>
+
+</body>	
+</html>
