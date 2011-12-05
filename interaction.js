@@ -66,6 +66,7 @@ var self = window.bezierLibrary = {
 	
 	selectThumbnail: function() {
 		var selected = $('.selected', this.parentNode);
+		var duration = getDurationValue();
 		
 		if (selected) {
 			selected.classList.remove('selected');
@@ -77,7 +78,9 @@ var self = window.bezierLibrary = {
 		this.bezierCanvas.plot(self.thumbnailStyleSelected);
 		
 		compare.style.cssText = this.style.cssText;
-		
+
+		compare.style.setProperty(prefix + 'transition-duration', duration + 's', null);
+
 		compareCanvas.bezier = this.bezier;
 		
 		compareCanvas.plot({
@@ -283,14 +286,9 @@ go.onclick = function() {
 };
 
 duration.oninput = function() {
-	var value = Math.round(this.value * 10) / 10;
-	
-	if(isNaN(value)) {
-		return;
-	}
+	var value = getDurationValue();
 	
 	this.nextElementSibling.textContent = value + ' second' + (value == 1? '' : 's');
-	
 	current.style.setProperty(prefix + 'transition-duration', value + 's', null);
 	compare.style.setProperty(prefix + 'transition-duration', value + 's', null);
 };
@@ -356,6 +354,16 @@ importexport.onsubmit = function() {
 /**
  * Helper functions
  */
+
+function getDurationValue(){
+	var value = Math.round(duration.value * 10) / 10;
+	
+	if(isNaN(value)) {
+		return;
+	}
+	
+	return value;
+}
 
 function update() {
 	// Redraw canvas
