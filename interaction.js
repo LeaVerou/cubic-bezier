@@ -66,7 +66,6 @@ var self = window.bezierLibrary = {
 	
 	selectThumbnail: function() {
 		var selected = $('.selected', this.parentNode);
-		var duration = getDurationValue();
 		
 		if (selected) {
 			selected.classList.remove('selected');
@@ -79,7 +78,7 @@ var self = window.bezierLibrary = {
 		
 		compare.style.cssText = this.style.cssText;
 
-		compare.style.setProperty(prefix + 'transition-duration', duration + 's', null);
+		compare.style.setProperty(prefix + 'transition-duration', getDuration() + 's', null);
 
 		compareCanvas.bezier = this.bezier;
 		
@@ -286,11 +285,10 @@ go.onclick = function() {
 };
 
 duration.oninput = function() {
-	var value = getDurationValue();
-	
-	this.nextElementSibling.textContent = value + ' second' + (value == 1? '' : 's');
-	current.style.setProperty(prefix + 'transition-duration', value + 's', null);
-	compare.style.setProperty(prefix + 'transition-duration', value + 's', null);
+	var val = getDuration();
+	this.nextElementSibling.textContent = val + ' second' + (val == 1? '' : 's');
+	current.style.setProperty(prefix + 'transition-duration', val + 's', null);
+	compare.style.setProperty(prefix + 'transition-duration', val + 's', null);
 };
 
 window['import'].onclick = function() {
@@ -355,14 +353,8 @@ importexport.onsubmit = function() {
  * Helper functions
  */
 
-function getDurationValue(){
-	var value = Math.round(duration.value * 10) / 10;
-	
-	if(isNaN(value)) {
-		return;
-	}
-	
-	return value;
+function getDuration() {
+	return (isNaN(val = Math.round(duration.value * 10) / 10)) ? null : val;
 }
 
 function update() {
