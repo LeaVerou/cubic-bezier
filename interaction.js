@@ -77,7 +77,9 @@ var self = window.bezierLibrary = {
 		this.bezierCanvas.plot(self.thumbnailStyleSelected);
 		
 		compare.style.cssText = this.style.cssText;
-		
+
+		compare.style.setProperty(prefix + 'transition-duration', getDuration() + 's', null);
+
 		compareCanvas.bezier = this.bezier;
 		
 		compareCanvas.plot({
@@ -283,16 +285,10 @@ go.onclick = function() {
 };
 
 duration.oninput = function() {
-	var value = Math.round(this.value * 10) / 10;
-	
-	if(isNaN(value)) {
-		return;
-	}
-	
-	this.nextElementSibling.textContent = value + ' second' + (value == 1? '' : 's');
-	
-	current.style.setProperty(prefix + 'transition-duration', value + 's', null);
-	compare.style.setProperty(prefix + 'transition-duration', value + 's', null);
+	var val = getDuration();
+	this.nextElementSibling.textContent = val + ' second' + (val == 1? '' : 's');
+	current.style.setProperty(prefix + 'transition-duration', val + 's', null);
+	compare.style.setProperty(prefix + 'transition-duration', val + 's', null);
 };
 
 window['import'].onclick = function() {
@@ -356,6 +352,10 @@ importexport.onsubmit = function() {
 /**
  * Helper functions
  */
+
+function getDuration() {
+	return (isNaN(val = Math.round(duration.value * 10) / 10)) ? null : val;
+}
 
 function update() {
 	// Redraw canvas
