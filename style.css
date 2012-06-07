@@ -100,6 +100,10 @@ input[type="range"] {
 	input[type="range"]:in-range {
 		width: 14em;
 	}
+	
+header > h1 {
+	white-space: nowrap;
+}
 
 header > p {
 	max-height: 0;
