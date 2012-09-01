@@ -432,4 +432,31 @@ function updateDelayed() {
 	$('link[rel="shortcut icon"]').setAttribute('href', favicon.toDataURL());
 	
 	document.title = bezier + ' ✿ cubic-bezier.com';
+
+	//select cubic-bezier code on click
+	$('h1 a').onclick = function(){
+		fnSelect('cubic-code');
+	}
+
+	function fnSelect(objId){
+		fnDeSelect();
+		if(document.selection){
+		  var range = document.body.createTextRange();
+		  range.moveToElementText(document.getElementById(objId));
+		  range.select();
+		}else if (window.getSelection){
+		  var range = document.createRange();
+		  range.selectNode(document.getElementById(objId));
+		  window.getSelection().addRange(range);
+		}
+	}
+	
+	function fnDeSelect(){
+		if(document.selection){
+			document.selection.empty();
+		}else if (window.getSelection){
+			window.getSelection().removeAllRanges();
+		} 
+	}
+
 }
