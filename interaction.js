@@ -307,6 +307,17 @@ go.onclick = function() {
 	compare.classList.toggle('move');
 };
 
+// Allow preview by pressing the enter key
+document.onkeydown = function(evt) {
+	if(evt.keyCode != 13) {
+		return;
+	}
+
+	updateDelayed();
+	current.classList.toggle('move');
+	compare.classList.toggle('move');
+};
+
 duration.oninput = function() {
 	var val = getDuration();
 	this.nextElementSibling.textContent = val + ' second' + (val == 1? '' : 's');
