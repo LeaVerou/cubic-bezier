@@ -1,24 +1,24 @@
 /*
  * Copyright (c) 2013 Lea Verou. All rights reserved.
- *  
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a
- * copy of this software and associated documentation files (the "Software"), 
- * to deal in the Software without restriction, including without limitation 
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, 
- * and/or sell copies of the Software, and to permit persons to whom the 
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
  * Software is furnished to do so, subject to the following conditions:
- *  
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *  
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
- * 
+ *
  */
 
 /**
@@ -35,7 +35,7 @@ header > p {
 	-ms-transition: 1s;
 	-o-transition: 1s;
 	-webkit-transition: 1s;
-	transition: 1s;	
+	transition: 1s;
 }
 
 #importexport > textarea,
@@ -46,29 +46,29 @@ code {
 /**
  * Styles
  */
-body { 
+body {
 	position: relative;
 	margin: 1em 5% 0;
-	padding-left: 330px; 
+	padding-left: 330px;
 	background: white;
 	font-family: 'Hiragino Kaku Gothic Pro', 'Segoe UI', 'Apple Gothic', Tahoma, 'Helvetica Neue', sans-serif;
 	line-height: 1.4;
 }
 
-h1 { 
+h1 {
 	font-size: 220%;
 }
 
-h2 { 
+h2 {
 	font-size: 16px;
 	margin: 20px 0 0 0;
 }
 
-a { 
+a {
 	color: #f08;
 }
 
-a:hover { 
+a:hover {
 	text-decoration: none;
 }
 
@@ -119,11 +119,11 @@ input[type="range"] {
 			1px 1px 3px rgba(0,0,0,.3),
 			-199px 0 0 198px rgba(255, 0, 136, .2);
 	}
-	
+
 	input[type="range"]:in-range {
 		width: 14em;
 	}
-	
+
 header > h1 {
 	white-space: nowrap;
 }
@@ -142,7 +142,7 @@ header > p {
 		white-space: nowrap;
 	}
 
-.coordinate-plane { 
+.coordinate-plane {
 	position: absolute;
 	top: 1em;
 	left: 0;
@@ -155,21 +155,21 @@ header > p {
 		left: 0;
 		width: 100%;
 		padding: .3em .5em;
-		
+
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
-		
+
 		color: rgba(0,0,0,.6);
 		text-transform: uppercase;
 		font-size: 75%;
 		line-height: 1;
 	}
-	
+
 	.coordinate-plane:before {
 		content: 'Progression';
-		
+
 		border-bottom: 1px solid;
-		
+
 		-moz-transform: rotate(-90deg);
 		-moz-transform-origin: bottom left;
 		-ms-transform: rotate(-90deg);
@@ -181,35 +181,35 @@ header > p {
 		transform: rotate(-90deg);
 		transform-origin: bottom left;
 	}
-	
+
 	.coordinate-plane:after {
 		content: 'Time';
 		border-top: 1px solid;
 		margin-bottom: -1.5em;
 	}
-	
+
 	.coordinate-plane:hover:before {
 		content: 'Progression (' attr(data-progression) '%)';
 	}
-	
+
 	.coordinate-plane:hover:after {
 		content: 'Time (' attr(data-time) '%)';
 	}
 
-.control-point { 
+.control-point {
 	position: absolute;
 	z-index: 1;
-	height: 20px; 
-	width: 20px; 
+	height: 20px;
+	width: 20px;
 	border: 1px solid rgba(0,0,0,.3);
 	margin: -10px 0 0 -10px;
 	outline: none;
-	
+
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	
-	 -moz-border-radius: 10px; 
-	 border-radius: 10px; 
+
+	 -moz-border-radius: 10px;
+	 border-radius: 10px;
 }
 
 #P0, #P3 {
@@ -220,33 +220,33 @@ header > p {
 	cursor: pointer;
 }
 
-#P0 { 
-	left: 0; 
+#P0 {
+	left: 0;
 	top: 75%;
 }
 
-#P1 { 
+#P1 {
 	background: #f08;
 }
 
-#P2 { 
+#P2 {
 	background: #0ab;
 }
 
-#P3 { 
-	left: 100%; 
+#P3 {
+	left: 100%;
 	top: 25%;
 }
 
-#P1x, #P1y { 
+#P1x, #P1y {
 	color: #f08;
 }
 
-#P2x, #P2y { 
+#P2x, #P2y {
 	color: #0ab;
 }
 
-canvas#curve { 
+canvas#curve {
 	background: #f0f0f0;
 	background: -moz-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%, transparent) center no-repeat,
 		-moz-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
@@ -265,7 +265,7 @@ canvas#curve {
 		linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
 	background-size: 100% 50%, 100% 50%, auto;
 	background-position: 25%, 0, 0;
-	
+
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
@@ -280,7 +280,7 @@ section {
 		font-size: 200%;
 		font-weight: normal;
 	}
-	
+
 	section > h1 + p {
 		margin: -.5em 0 1em 0;
 		color: gray;
@@ -310,12 +310,12 @@ section {
 		background: #0ab;
 		border-radius: 5px;
 	}
-	
-	#preview > #current { 
+
+	#preview > #current {
 		background: #f08;
 	}
-	
-	#preview > .move { 
+
+	#preview > .move {
 		left: 100%;
 	}
 
@@ -329,7 +329,7 @@ section {
 	text-align: center;
 	text-decoration: none;
 	cursor: pointer;
-	
+
 }
 	#library > a > canvas,
 	#library > a > span {
@@ -340,32 +340,32 @@ section {
 		transition: inherit;
 	}
 
-	#library > a > canvas { 
+	#library > a > canvas {
 		display: block;
-		position: relative; 
+		position: relative;
 		left: 0;
 		background: #e5e5e5;
-		
+
 		border-radius: 5px;
 	}
-	
+
 	#library > a:hover > canvas,
 	#library > a:focus > canvas {
 		background: #ACD0D5;
 	}
-	
+
 	#library > a > span {
 		display: block;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
-	
+
 	#library > a:hover > span,
 	#library > a:focus > span {
 		color: #568C93;
 	}
-	
+
 	#library > a > button {
 		display: none;
 		position: absolute;
@@ -376,24 +376,24 @@ section {
 		border-radius: 50%;
 		box-shadow: 1px 1px 8px -1px black;
 	}
-	
+
 	#library > a > button:hover {
 		background: #f08;
 	}
-	
+
 	#library > a:hover > button,
 	#library > a:focus > button {
 		display: block;
 	}
-	
+
 #library > a.selected {
 	color: #0ab;
 }
-	
+
 		#library > a.selected > canvas {
 			background: #0ab;
 		}
-		
+
 #library > footer {
 	clear: both;
 	font-size: 80%;
@@ -423,7 +423,7 @@ section {
 		font-weight: bold;
 		text-shadow: 1px 1px 2px black;
 	}
-	
+
 	#importexport > textarea {
 		display: block;
 		width: 100%;
@@ -437,15 +437,15 @@ section {
 		border-radius: .3em;
 		box-shadow: .1em .1em .4em rgba(0,0,0,.5) inset;
 	}
-	
+
 	#importexport > button {
 		font-size: 120%;
 	}
-	
+
 	#importexport > button:not(:hover) {
 		background: black;
 	}
-	
+
 	#importexport.export > button:first-of-type,
 	#importexport.export > label:first-of-type,
 	#importexport.import > label:nth-of-type(2) {
@@ -460,7 +460,7 @@ body > footer {
 	white-space: nowrap;
 	font-size: 120%;
 	color: rgba(0, 0, 0, .1);
-	
+
 	-moz-transform: rotate(-90deg);
 	-moz-transform-origin: top right;
 	-ms-transform: rotate(-90deg);
@@ -476,11 +476,11 @@ body > footer {
 	body > footer > a {
 		font-weight: bold;
 	}
-	
+
 	body > footer > a:not(:hover) {
 		color: inherit;
 	}
-	
+
 	body > footer > a.button {
 		padding: .5em .6em;
 		color: white;
@@ -488,20 +488,73 @@ body > footer {
 		font-size: 65%;
 		background: #ddd;
 	}
-	
+
 .twitter-share-button {
 	position: fixed;
 	top: 10px;
 	right: 10px;
 }
-	
+
 @media (min-width:1330px) {
 	#preview {
 		float: left;
 		width: 400px;
 	}
-	
+
 	#library {
 		margin-left: 490px;
 	}
 }
+
+/* Carbon Ads */
+
+#carbonads {
+	display: block;
+	overflow: hidden;
+	margin: 2em auto 0;
+	padding: 1em;
+	max-width: 360px;
+	border: solid 1px hsl(0, 0%, 88%);
+	border-radius: 4px;
+	background-color: #f4f4f4;
+	box-shadow: inset 0 1px #fafafa;
+	font-size: 12px;
+	line-height: 1.5;
+}
+
+#carbonads a {
+	color: #4d4d4d;
+	text-decoration: none;
+	text-shadow: 0 1px #fafafa;
+	transition: color .15s ease-in-out;
+}
+
+#carbonads a:hover { color: #ff0088; }
+
+	#carbonads span {
+		position: relative;
+		display: block;
+		overflow: hidden;
+	}
+
+	.carbon-img {
+		float: left;
+		margin-right: 1em;
+	}
+
+	.carbon-img img { display: block; }
+
+	.carbon-text {
+		display: block;
+		float: left;
+		max-width: calc(100% - 130px - 1em);
+		text-align: left;
+	}
+
+	.carbon-poweredby {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		display: block;
+		font-size: 11px;
+	}
