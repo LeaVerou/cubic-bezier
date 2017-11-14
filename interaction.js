@@ -164,7 +164,8 @@ var ctx = curve.getContext("2d"),
 	currentCanvas = new BezierCanvas(current, null, .15),
 	compareCanvas = new BezierCanvas(compare, null, .15),
 	favicon = document.createElement('canvas'),
-	faviconCtx = favicon.getContext('2d');
+	faviconCtx = favicon.getContext('2d'),
+	pixelDepth = window.devicePixelRatio || 1;
 
 // Add predefined curves
 if (!localStorage.curves) {
@@ -184,7 +185,7 @@ if(location.hash) {
 	P2.style.prop(offsets[1]);
 }
 
-favicon.width = favicon.height = 16;
+favicon.width = favicon.height = 16 * pixelDepth;
 
 update();
 updateDelayed();
@@ -431,7 +432,8 @@ function update() {
 function updateDelayed() {
 	bezier.applyStyle(current);
 	
-	var hash = '#' + bezier.coordinates;
+	var hash = '#' + bezier.coordinates,
+		size = 16 * pixelDepth;
 	
 	bezierCode.parentNode.href = hash;
 	
@@ -445,11 +447,11 @@ function updateDelayed() {
 	// Draw dynamic favicon
 	
 	faviconCtx
-		.clearRect(0,0,16,16)
+		.clearRect(0, 0, size, size)
 		.prop('fillStyle', '#0ab')
-		.roundRect(0, 0, 16, 16, 2)
+		.roundRect(0, 0, size, size, 2)
 		.fill()
-		.drawImage(current, 0, 0, 16, 16);
+		.drawImage(current, 0, 0, size, size);
 	
 	
 	$('link[rel="shortcut icon"]').setAttribute('href', favicon.toDataURL());
