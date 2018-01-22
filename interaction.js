@@ -177,7 +177,7 @@ bezierLibrary.curves = JSON.parse(localStorage.curves);
 bezierLibrary.render();
 
 if(location.hash) {
-	bezierCanvas.bezier = window.bezier = new CubicBezier(location.hash);
+	bezierCanvas.bezier = window.bezier = new CubicBezier(decodeURI(location.hash));
 	
 	var offsets = bezierCanvas.offsets;
 	
