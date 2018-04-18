@@ -406,26 +406,6 @@ function update() {
 	for(var i=params.length; i--;) {
 		params[i].textContent = prettyOffsets[i]; 
 	}
-	
-	// Show webkit-friendly version, if needed
-	var webkitWarning = $('header > p');
-	
-	if (!bezier.inRange) {
-		var webkitBezier = bezier.clipped;
-		
-		webkitWarning.style.maxHeight = '3em';
-		$('a', webkitWarning).tabIndex = '0';
-		
-		$('code', webkitWarning).textContent = webkitBezier;
-		
-		if (prefix === '-webkit-') {
-			webkitBezier.applyStyle(current);
-		}
-	}
-	else {
-		webkitWarning.style.maxHeight = '';
-		$('a', webkitWarning).tabIndex = '-1';
-	}
 }
 
 // For actions that can wait
