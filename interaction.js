@@ -154,7 +154,7 @@ var self = window.bezierLibrary = {
 // Ensure global vars for ids (most browsers already do this anyway, so…)
 [
 	'values', 'curve','P1','P2', 'current', 'compare', 'duration', 
-	'library', 'save', 'go', 'import', 'export', 'json', 'importexport'
+	'library', 'save', 'copy', 'copyoptionstoggle', 'copybuttons', 'copyoptions', 'copystatement', 'copycss', 'copyvalue', 'go', 'import', 'export', 'json', 'importexport'
 ].forEach(function(id) { window[id] = $('#' + id); });
 
 var ctx = curve.getContext("2d"),
@@ -287,7 +287,23 @@ curve.onmousemove = function(evt) {
 	this.parentNode.setAttribute('data-time', Math.round(100 * x / curveBoundingBox.width));
 	this.parentNode.setAttribute('data-progression', Math.round(100 * (3*height/4 - y) / (height * .5)));
 };
-
+copy.onclick = function(){
+	copystatement.select();
+	copystatement.setSelectionRange(0, 99999);
+	document.execCommand("copy");
+}
+handleOptionCopy = function(){
+	this.select();
+	this.setSelectionRange(0, 99999);
+	document.execCommand("copy");
+	copybuttons.classList.remove('copyoptions-open');
+}
+copycss.onclick = handleOptionCopy;
+copystatement.onclick = handleOptionCopy;
+copyvalue.onclick = handleOptionCopy;
+copyoptionstoggle.onclick = function () {
+	copybuttons.classList.toggle('copyoptions-open');
+}
 save.onclick = function() {
 	var rawValues = bezier.coordinates + '',
 		name = prompt('If you want, you can give it a short name', rawValues);
@@ -313,6 +329,7 @@ duration.oninput = function() {
 	this.nextElementSibling.textContent = val + ' second' + (val == 1? '' : 's');
 	current.style.setProperty(prefix + 'transition-duration', val + 's', null);
 	compare.style.setProperty(prefix + 'transition-duration', val + 's', null);
+	updateCopyInputs();
 };
 
 window['import'].onclick = function() {
@@ -398,14 +415,20 @@ function update() {
 		handleThickness: .03,
 		bezierThickness: .06
 	});
-	
-	// Show cubic-bezier values
+
+
+	updateCopyInputs();
 	var params = $$('.param', bezierCode), 
 		prettyOffsets = bezier.coordinates.toString().split(',');
 	
 	for(var i=params.length; i--;) {
 		params[i].textContent = prettyOffsets[i]; 
 	}
+}
+function updateCopyInputs(){
+	copystatement.value = "cubic-bezier(" + bezier.coordinates.toString() + ")";
+	copycss.value = getDuration() + "s all cubic-bezier(" + bezier.coordinates.toString() + ")";
+	copyvalue.value = bezier.coordinates.toString();
 }
 
 // For actions that can wait
@@ -423,6 +446,9 @@ function updateDelayed() {
 	else {
 		location.hash = hash;
 	}
+
+	
+
 	
 	// Draw dynamic favicon
 	
