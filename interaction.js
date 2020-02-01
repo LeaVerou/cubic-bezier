@@ -291,12 +291,21 @@ copy.onclick = function(){
 	copystatement.select();
 	copystatement.setSelectionRange(0, 99999);
 	document.execCommand("copy");
+	copybuttons.classList.remove('copyoptions-open');
+	copybuttons.classList.add('copied');
+	copybuttons.addEventListener("animationend", handleCopyAnimationComplete, false);
 }
 handleOptionCopy = function(){
 	this.select();
 	this.setSelectionRange(0, 99999);
 	document.execCommand("copy");
 	copybuttons.classList.remove('copyoptions-open');
+	copybuttons.classList.add('copied');
+	copybuttons.addEventListener("animationend", handleCopyAnimationComplete, false);
+}
+function handleCopyAnimationComplete(){
+	copybuttons.removeEventListener("animationend", handleCopyAnimationComplete, false);
+	copybuttons.classList.remove('copied');
 }
 copycss.onclick = handleOptionCopy;
 copystatement.onclick = handleOptionCopy;

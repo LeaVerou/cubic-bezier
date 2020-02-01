@@ -181,6 +181,13 @@ button:focus, .button:focus {
 	#copybuttons #copy:hover, #copybuttons #copyoptionstoggle:hover, #copybuttons.copyoptions-open:hover  #copyoptionstoggle{
 		background: #a50b5d;
 	}
+@keyframes copied {
+  0%   { background: #599133; }
+  100% { background: #ccc; }
+}
+#copybuttons.copied  #copyoptionstoggle, #copybuttons.copied  #copy{
+	animation: 1s copied cubic-bezier(.51,.2,.81,.48);
+}
 input[type="range"] {
 	-webkit-appearance: none;
 	overflow: hidden;
