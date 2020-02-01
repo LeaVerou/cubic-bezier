@@ -98,9 +98,13 @@ button:focus, .button:focus {
 }
 #copybuttons {
 	display: flex;
-	float: left;
 	padding: 0.35em;
+	padding-left: 0;
+	width: 85px;
 	position: relative;
+}
+#copybuttons.copyoptions-open {
+	width: auto;
 }
 #copybuttons.copyoptions-open #copy{
 	background-color: #f08;
@@ -129,9 +133,10 @@ button:focus, .button:focus {
 	z-index: 2;
 	opacity:0;
 	font-size: 0.1em;
-	max-width: 400px;
+	max-width: 415px;
 	transition: height 0.5s cubic-bezier(.1,.74,.33,.95);
 	height: 20px;
+	pointer-events: none;
 }
 #copyoptions > input{
 	opacity: 1;
@@ -147,8 +152,7 @@ button:focus, .button:focus {
 	cursor: pointer;
 	padding:0.2em 0.3em;
 	border-radius: 0.2em;
-	min-width: 390px;
-	
+	min-width: 400px;
 	font-family: monospace;
 }
 #copyoptions > button > code{
@@ -160,7 +164,8 @@ button:focus, .button:focus {
 #copybuttons.copyoptions-open  #copyoptions{
 	opacity:1;
 	font-size: 1em;
-		height: 125px;
+	height: 125px;
+	pointer-events: auto;
 }
 #copyoptionstoggle{
 	border-top-left-radius: 0;
@@ -225,9 +230,6 @@ header > p {
 		white-space: nowrap;
 	}
 
-	header .permalink {
-		float: left;
-	}
 .coordinate-plane {
 	position: absolute;
 	top: 1em;
@@ -595,6 +597,12 @@ body > footer {
 
 	#library {
 		margin-left: 490px;
+	}
+	header .permalink {
+		float: left;
+	}
+	#copybuttons {
+		padding-left: 0.35em;
 	}
 }
 
