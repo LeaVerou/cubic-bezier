@@ -96,7 +96,98 @@ button:hover, .button:hover {
 button:focus, .button:focus {
 	box-shadow: 0 0 5px 2px yellow;
 }
+#copybuttons {
+	display: flex;
+	padding: 0.35em;
+	padding-left: 0;
+	width: 85px;
+	position: relative;
+}
+#copybuttons.copyoptions-open {
+	width: auto;
+}
+#copybuttons.copyoptions-open #copy{
+	background-color: #f08;
+	border-bottom-left-radius: 0;
+}
 
+#copybuttons.copyoptions-open  #copyoptionstoggle {
+	background-color: #a50b5d;
+	border-bottom-right-radius: 0;
+	box-shadow: none;
+}
+#copy {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	padding-right: 0.3em;
+	display: block;
+	
+}
+#copyoptions{
+	position: absolute;
+	top:42px;
+	background-color: #f08;
+	padding:0.2em 0.3em;
+	border-radius: 0 .2em .2em;
+	overflow: hidden;
+	z-index: 2;
+	opacity:0;
+	font-size: 0.1em;
+	max-width: 415px;
+	transition: height 0.5s cubic-bezier(.1,.74,.33,.95);
+	height: 20px;
+	pointer-events: none;
+}
+#copyoptions > input{
+	opacity: 1;
+	background-color: #f08;
+	margin-bottom: 0.4em;
+	margin-top: 0.4em;
+	display: block;
+	text-transform: none;
+	font-size: 0.65em;
+	font-weight: 700;
+	color:#fff;
+	border:0;
+	cursor: pointer;
+	padding:0.2em 0.3em;
+	border-radius: 0.2em;
+	min-width: 400px;
+	font-family: monospace;
+}
+#copyoptions > button > code{
+	font-size: 1.2em;
+}
+#copyoptions > input:hover{
+	background: #a50b5d;
+}
+#copybuttons.copyoptions-open  #copyoptions{
+	opacity:1;
+	font-size: 1em;
+	height: 125px;
+	pointer-events: auto;
+}
+#copyoptionstoggle{
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	padding-left: 0.3em;
+	display: block;
+}
+
+	#copybuttons:hover #copy, #copybuttons:hover #copyoptionstoggle {
+		
+		background: #f08;
+	}
+	#copybuttons #copy:hover, #copybuttons #copyoptionstoggle:hover, #copybuttons.copyoptions-open:hover  #copyoptionstoggle{
+		background: #a50b5d;
+	}
+@keyframes copied {
+  0%   { background: #599133; }
+  100% { background: #ccc; }
+}
+#copybuttons.copied  #copyoptionstoggle, #copybuttons.copied  #copy{
+	animation: 1s copied cubic-bezier(.51,.2,.81,.48);
+}
 input[type="range"] {
 	-webkit-appearance: none;
 	overflow: hidden;
@@ -127,7 +218,11 @@ input[type="range"] {
 header > h1 {
 	white-space: nowrap;
 }
-
+	header > h1:after {
+	content: "";
+	display: table;
+	clear: both;
+	}
 header > p {
 	max-height: 0;
 	overflow: hidden;
@@ -195,7 +290,13 @@ header > p {
 	.coordinate-plane:hover:after {
 		content: 'Time (' attr(data-time) '%)';
 	}
-
+#save {
+	position: absolute;
+	bottom: 90px;
+	z-index: 0;
+	right:1em;
+	font-size: 1em;
+}
 .control-point {
 	position: absolute;
 	z-index: 1;
@@ -503,6 +604,12 @@ body > footer {
 
 	#library {
 		margin-left: 490px;
+	}
+	header .permalink {
+		float: left;
+	}
+	#copybuttons {
+		padding-left: 0.35em;
 	}
 }
 

@@ -11,23 +11,36 @@
 
 <header>
 	<h1>
-		<a href=""><code>cubic-bezier(<span id="values"><span
+		<a href="" class="permalink"><code>cubic-bezier(<span id="values"><span
 		 id="P1x" class="param">0</span>,<span
 		 id="P1y" class="param">0</span>,<span
 		 id="P2x" class="param">.25</span>,<span
 		 id="P2y" class="param">1</span></span>)</code></a>
-		<button id="save">Save</button>
+		<div id="copybuttons">
+			<button id="copy">Copy</button>
+			<button id="copyoptionstoggle">&#9660;</button>
+			<div id="copyoptions">
+				<input type="text" id="copystatement" value="cubic-bezier(1,2,3,4)"></input>
+				<input type="text" id="copycss" value="1s all cubic-bezier(.88,-8.88,1,1)"></input>
+				<input type="text" id="copyvalue" value="1,2,3,4"></input>
+			</div>
+		</div>
 	</h1>
 </header>
 
-<div class="coordinate-plane">
-	<span class="control-point" id="P0"></span>
-	<button class="control-point" id="P1" style="left:50px; top: 250px;"></button>
-	<button class="control-point" id="P2" style="left:250px; top: 250px;"></button>
-	<span class="control-point" id="P3"></span>
+<div id="curve-display">
+	<div class="coordinate-plane">
+		<span class="control-point" id="P0"></span>
+		<button class="control-point" id="P1" style="left:50px; top: 250px;"></button>
+		<button class="control-point" id="P2" style="left:250px; top: 250px;"></button>
+		<span class="control-point" id="P3"></span>
 
-	<canvas height="600" width="300" id="curve"></canvas>
+		<canvas height="600" width="300" id="curve"></canvas>
+		<button id="save">Save to Library</button>
+	</div>
+	
 </div>
+
 
 <section id="preview">
 	<h1>
