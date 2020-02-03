@@ -436,8 +436,14 @@ function update() {
 }
 function updateCopyInputs(){
 	copystatement.value = "cubic-bezier(" + bezier.coordinates.toString() + ")";
-	copycss.value = getDuration() + "s all cubic-bezier(" + bezier.coordinates.toString() + ")";
+	copycss.value = getDuration() + "s cubic-bezier(" + bezier.coordinates.toString() + ")";
 	copyvalue.value = bezier.coordinates.toString();
+	var items = document.querySelectorAll('#copyoptions input');
+	for (var i = items.length; i--;) {
+		var width = copycss.value.length *11;
+		items[i].style.width = width+'px';
+	}
+	
 }
 
 // For actions that can wait
