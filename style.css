@@ -133,7 +133,6 @@ button:focus, .button:focus {
 	z-index: 2;
 	opacity:0;
 	font-size: 0.1em;
-	max-width: 415px;
 	transition: height 0.5s cubic-bezier(.1,.74,.33,.95);
 	height: 20px;
 	pointer-events: none;
@@ -152,7 +151,6 @@ button:focus, .button:focus {
 	cursor: pointer;
 	padding:0.2em 0.3em;
 	border-radius: 0.2em;
-	min-width: 400px;
 	font-family: monospace;
 }
 #copyoptions > button > code{
