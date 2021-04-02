@@ -313,6 +313,7 @@ header > p {
 
 #P0, #P3 {
 	background: white;
+	pointer-events: none;
 }
 
 #P1, #P2 {
