@@ -31,10 +31,6 @@
 #preview > canvas,
 #library > a,
 header > p {
-	-moz-transition: 1s;
-	-ms-transition: 1s;
-	-o-transition: 1s;
-	-webkit-transition: 1s;
 	transition: 1s;
 }
 
@@ -96,6 +92,7 @@ button:hover, .button:hover {
 button:focus, .button:focus {
 	box-shadow: 0 0 5px 2px yellow;
 }
+
 #copybuttons {
 	display: flex;
 	padding: 0.35em;
@@ -103,41 +100,45 @@ button:focus, .button:focus {
 	width: 85px;
 	position: relative;
 }
+
 #copybuttons.copyoptions-open {
 	width: auto;
 }
-#copybuttons.copyoptions-open #copy{
+
+#copybuttons.copyoptions-open #copy {
 	background-color: #f08;
 	border-bottom-left-radius: 0;
 }
 
-#copybuttons.copyoptions-open  #copyoptionstoggle {
+#copybuttons.copyoptions-open #copyoptionstoggle {
 	background-color: #a50b5d;
 	border-bottom-right-radius: 0;
 	box-shadow: none;
 }
+
 #copy {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 	padding-right: 0.3em;
 	display: block;
-	
 }
-#copyoptions{
+
+#copyoptions {
 	position: absolute;
-	top:42px;
+	top: 42px;
 	background-color: #f08;
-	padding:0.2em 0.3em;
+	padding: 0.2em 0.3em;
 	border-radius: 0 .2em .2em;
 	overflow: hidden;
 	z-index: 2;
-	opacity:0;
+	opacity: 0;
 	font-size: 0.1em;
 	transition: height 0.5s cubic-bezier(.1,.74,.33,.95);
 	height: 20px;
 	pointer-events: none;
 }
-#copyoptions > input{
+
+#copyoptions > input {
 	opacity: 1;
 	background-color: #f08;
 	margin-bottom: 0.4em;
@@ -146,48 +147,59 @@ button:focus, .button:focus {
 	text-transform: none;
 	font-size: 0.65em;
 	font-weight: 700;
-	color:#fff;
-	border:0;
+	color: #fff;
+	border: 0;
 	cursor: pointer;
-	padding:0.2em 0.3em;
+	padding: 0.2em 0.3em;
 	border-radius: 0.2em;
 	font-family: monospace;
 }
-#copyoptions > button > code{
+
+#copyoptions > button > code {
 	font-size: 1.2em;
 }
-#copyoptions > input:hover{
+
+#copyoptions > input:hover {
 	background: #a50b5d;
 }
-#copybuttons.copyoptions-open  #copyoptions{
-	opacity:1;
+
+#copybuttons.copyoptions-open #copyoptions {
+	opacity: 1;
 	font-size: 1em;
 	height: 125px;
 	pointer-events: auto;
 }
-#copyoptionstoggle{
+
+#copyoptionstoggle {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	padding-left: 0.3em;
 	display: block;
 }
 
-	#copybuttons:hover #copy, #copybuttons:hover #copyoptionstoggle {
-		
+	#copybuttons:hover #copy,
+	#copybuttons:hover #copyoptionstoggle {
 		background: #f08;
 	}
-	#copybuttons #copy:hover, #copybuttons #copyoptionstoggle:hover, #copybuttons.copyoptions-open:hover  #copyoptionstoggle{
+
+	#copybuttons #copy:hover,
+	#copybuttons #copyoptionstoggle:hover,
+	#copybuttons.copyoptions-open:hover #copyoptionstoggle {
 		background: #a50b5d;
 	}
+
 @keyframes copied {
-  0%   { background: #599133; }
-  100% { background: #ccc; }
+	0% { background: #599133; }
+	100% { background: #ccc; }
 }
-#copybuttons.copied  #copyoptionstoggle, #copybuttons.copied  #copy{
+
+#copybuttons.copied #copyoptionstoggle, #copybuttons.copied #copy {
 	animation: 1s copied cubic-bezier(.51,.2,.81,.48);
 }
+
 input[type="range"] {
 	-webkit-appearance: none;
+	width: 14em;
 	overflow: hidden;
 	border: 1px solid #ddd;
 	background: #eee;
@@ -209,18 +221,16 @@ input[type="range"] {
 			-199px 0 0 198px rgba(255, 0, 136, .2);
 	}
 
-	input[type="range"]:in-range {
-		width: 14em;
-	}
-
 header > h1 {
 	white-space: nowrap;
 }
-	header > h1:after {
-	content: "";
-	display: table;
-	clear: both;
+
+	header > h1::after {
+		content: "";
+		display: table;
+		clear: both;
 	}
+
 header > p {
 	max-height: 0;
 	overflow: hidden;
@@ -241,58 +251,47 @@ header > p {
 	left: 0;
 	line-height: 0;
 }
-	.coordinate-plane:before,
-	.coordinate-plane:after {
+
+	.coordinate-plane::before,
+	.coordinate-plane::after {
 		position: absolute;
 		bottom: 25%;
 		left: 0;
 		width: 100%;
 		padding: .3em .5em;
-
-		-moz-box-sizing: border-box;
 		box-sizing: border-box;
-
 		color: rgba(0,0,0,.6);
 		text-transform: uppercase;
 		font-size: 75%;
 		line-height: 1;
 	}
 
-	.coordinate-plane:before {
+	.coordinate-plane::before {
 		content: 'Progression';
-
 		border-bottom: 1px solid;
-
-		-moz-transform: rotate(-90deg);
-		-moz-transform-origin: bottom left;
-		-ms-transform: rotate(-90deg);
-		-ms-transform-origin: bottom left;
-		-o-transform: rotate(-90deg);
-		-o-transform-origin: bottom left;
-		-webkit-transform: rotate(-90deg);
-		-webkit-transform-origin: bottom left;
 		transform: rotate(-90deg);
 		transform-origin: bottom left;
 	}
 
-	.coordinate-plane:after {
+	.coordinate-plane::after {
 		content: 'Time';
 		border-top: 1px solid;
 		margin-bottom: -1.5em;
 	}
 
-	.coordinate-plane:hover:before {
+	.coordinate-plane:hover::before {
 		content: 'Progression (' attr(data-progression) '%)';
 	}
 
-	.coordinate-plane:hover:after {
+	.coordinate-plane:hover::after {
 		content: 'Time (' attr(data-time) '%)';
 	}
+
 #save {
 	position: absolute;
 	bottom: 90px;
 	z-index: 0;
-	right:1em;
+	right: 1em;
 	font-size: 1em;
 }
 .control-point {
@@ -303,12 +302,8 @@ header > p {
 	border: 1px solid rgba(0,0,0,.3);
 	margin: -10px 0 0 -10px;
 	outline: none;
-
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-
-	 -moz-border-radius: 10px;
-	 border-radius: 10px;
+	border-radius: 10px;
 }
 
 #P0, #P3 {
@@ -347,26 +342,11 @@ header > p {
 }
 
 canvas#curve {
-	background: #f0f0f0;
-	background: -moz-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%, transparent) center no-repeat,
-		-moz-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-moz-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
-	background: -ms-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
-		-ms-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-ms-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
-	background: -o-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
-		-o-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-o-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
-	background: -webkit-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
-		-webkit-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-webkit-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
 	background: linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
 		repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
 		linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
 	background-size: 100% 50%, 100% 50%, auto;
 	background-position: 25%, 0, 0;
-
-	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
 }
@@ -396,7 +376,7 @@ section {
 	padding-right: 80px;
 }
 
-	#preview:after {
+	#preview::after {
 		content: "";
 		display: block;
 		clear: both;
@@ -431,12 +411,9 @@ section {
 	cursor: pointer;
 
 }
+
 	#library > a > canvas,
 	#library > a > span {
-		-moz-transition: inherit;
-		-ms-transition: inherit;
-		-o-transition: inherit;
-		-webkit-transition: inherit;
 		transition: inherit;
 	}
 
@@ -561,14 +538,6 @@ body > footer {
 	font-size: 120%;
 	color: rgba(0, 0, 0, .1);
 
-	-moz-transform: rotate(-90deg);
-	-moz-transform-origin: top right;
-	-ms-transform: rotate(-90deg);
-	-ms-transform-origin: top right;
-	-o-transform: rotate(-90deg);
-	-o-transform-origin: top right;
-	-webkit-transform: rotate(-90deg);
-	-webkit-transform-origin: top right;
 	transform: rotate(-90deg);
 	transform-origin: top right;
 }
@@ -604,9 +573,11 @@ body > footer {
 	#library {
 		margin-left: 490px;
 	}
+
 	header .permalink {
 		float: left;
 	}
+
 	#copybuttons {
 		padding-left: 0.35em;
 	}
