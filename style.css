@@ -43,10 +43,16 @@ code {
  * Styles
  */
 body {
+	display: grid;
+	grid-template-columns: max(5%, 3rem) auto auto 1fr;
+	grid-template-rows: auto 1fr;
+	grid-template-areas:
+		"footer curve header  header"
+		"footer curve preview library";
+	gap: 2rem;
 	position: relative;
-	margin: 1em 5% 0;
-	padding-left: 330px;
 	background: white;
+	padding-bottom: 2rem;
 	font-family: 'Hiragino Kaku Gothic Pro', 'Segoe UI', 'Apple Gothic', Tahoma, 'Helvetica Neue', sans-serif;
 	line-height: 1.4;
 }
@@ -94,11 +100,9 @@ button:focus, .button:focus {
 }
 
 #copybuttons {
-	display: flex;
-	padding: 0.35em;
-	padding-left: 0;
-	width: 85px;
+	display: inline-flex;
 	position: relative;
+	vertical-align: middle;
 }
 
 #copybuttons.copyoptions-open {
@@ -125,10 +129,11 @@ button:focus, .button:focus {
 
 #copyoptions {
 	position: absolute;
-	top: 42px;
+	top: 100%;
+	right: 0;
 	background-color: #f08;
 	padding: 0.2em 0.3em;
-	border-radius: 0 .2em .2em;
+	border-radius: .2em 0 .2em .2em;
 	overflow: hidden;
 	z-index: 2;
 	opacity: 0;
@@ -165,8 +170,8 @@ button:focus, .button:focus {
 
 #copybuttons.copyoptions-open #copyoptions {
 	opacity: 1;
-	font-size: 1em;
 	height: 125px;
+	font-size: 1em;
 	pointer-events: auto;
 }
 
@@ -221,34 +226,41 @@ input[type="range"] {
 			-199px 0 0 198px rgba(255, 0, 136, .2);
 	}
 
-header > h1 {
-	white-space: nowrap;
+header {
+	grid-area: header;
+	padding: 1rem 0;
 }
 
-	header > h1::after {
-		content: "";
-		display: table;
-		clear: both;
-	}
-
-header > p {
-	max-height: 0;
-	overflow: hidden;
-	color: #999;
-	font-size: 90%;
-	font-weight: normal;
-}
-
-	header > p > code {
-		color: black;
-		font-weight: bold;
+	header > h1 {
+		display: flow-root;
 		white-space: nowrap;
 	}
 
+	header .permalink {
+		font-size: clamp(.75em, 4vw, 1em);
+	}
+
+	header > p {
+		max-height: 0;
+		overflow: hidden;
+		color: #999;
+		font-size: 90%;
+		font-weight: normal;
+	}
+
+		header > p > code {
+			color: black;
+			font-weight: bold;
+			white-space: nowrap;
+		}
+
+#curve-display {
+	grid-area: curve;
+	justify-self: center;
+}
+
 .coordinate-plane {
-	position: absolute;
-	top: 1em;
-	left: 0;
+	position: relative;
 	line-height: 0;
 }
 
@@ -351,9 +363,7 @@ canvas#curve {
 	user-select: none;
 }
 
-section {
-	margin: 2em 0;
-}
+section {}
 
 	section > h1 {
 		margin-bottom: .2em;
@@ -372,8 +382,9 @@ section {
 }
 
 #preview {
+	grid-area: preview;
 	position: relative;
-	padding-right: 80px;
+	max-width: 500px;
 }
 
 	#preview::after {
@@ -396,86 +407,91 @@ section {
 	}
 
 	#preview > .move {
-		left: 100%;
+		left: calc(100% - 60px);
 	}
 
-#library > a {
-	position: relative;
-	float: left;
-	width: 100px;
-	margin: 0 .8em 1em 0;
-	color: #999;
-	font-size: 110%;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-
+#library {
+	grid-area: library;
+	padding-right: 5%;
 }
 
-	#library > a > canvas,
-	#library > a > span {
-		transition: inherit;
-	}
-
-	#library > a > canvas {
-		display: block;
+	#library > a {
 		position: relative;
-		left: 0;
-		background: #e5e5e5;
+		float: left;
+		width: 100px;
+		margin: 0 .8em 1em 0;
+		color: #999;
+		font-size: 110%;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
 
-		border-radius: 5px;
 	}
 
-	#library > a:hover > canvas,
-	#library > a:focus > canvas {
-		background: #ACD0D5;
-	}
-
-	#library > a > span {
-		display: block;
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
-	}
-
-	#library > a:hover > span,
-	#library > a:focus > span {
-		color: #568C93;
-	}
-
-	#library > a > button {
-		display: none;
-		position: absolute;
-		top: -5px;
-		right: -5px;
-		background: black;
-		font-size: 80%;
-		border-radius: 50%;
-		box-shadow: 1px 1px 8px -1px black;
-	}
-
-	#library > a > button:hover {
-		background: #f08;
-	}
-
-	#library > a:hover > button,
-	#library > a:focus > button {
-		display: block;
-	}
-
-#library > a.selected {
-	color: #0ab;
-}
-
-		#library > a.selected > canvas {
-			background: #0ab;
+		#library > a > canvas,
+		#library > a > span {
+			transition: inherit;
 		}
 
-#library > footer {
-	clear: both;
-	font-size: 80%;
-	color: #444;
-}
+		#library > a > canvas {
+			display: block;
+			position: relative;
+			left: 0;
+			background: #e5e5e5;
+
+			border-radius: 5px;
+		}
+
+		#library > a:hover > canvas,
+		#library > a:focus > canvas {
+			background: #ACD0D5;
+		}
+
+		#library > a > span {
+			display: block;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		#library > a:hover > span,
+		#library > a:focus > span {
+			color: #568C93;
+		}
+
+		#library > a > button {
+			display: none;
+			position: absolute;
+			top: -5px;
+			right: -5px;
+			background: black;
+			font-size: 80%;
+			border-radius: 50%;
+			box-shadow: 1px 1px 8px -1px black;
+		}
+
+		#library > a > button:hover {
+			background: #f08;
+		}
+
+		#library > a:hover > button,
+		#library > a:focus > button {
+			display: block;
+		}
+
+	#library > a.selected {
+		color: #0ab;
+	}
+
+			#library > a.selected > canvas {
+				background: #0ab;
+			}
+
+	#library > footer {
+		clear: both;
+		font-size: 80%;
+		color: #444;
+	}
 
 #importexport {
 	position: fixed;
@@ -532,13 +548,12 @@ section {
 body > footer {
 	position: fixed;
 	top: 0;
-	right: 100%;
+	left: 0;
 	padding: .5em 1em;
-	white-space: nowrap;
 	font-size: 120%;
 	color: rgba(0, 0, 0, .1);
 
-	transform: rotate(-90deg);
+	transform: translateX(-100%) rotate(-90deg);
 	transform-origin: top right;
 }
 
@@ -559,27 +574,58 @@ body > footer {
 	}
 
 .twitter-share-button {
-	position: fixed;
+	position: absolute !important;
 	top: 10px;
 	right: 10px;
 }
 
-@media (min-width:1330px) {
-	#preview {
-		float: left;
-		width: 400px;
+@media (max-width: 1200px){
+	body {
+		grid-template-areas:
+			"footer header header header"
+			"footer curve preview preview"
+			"footer curve library library";
+		gap: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+@media (max-width: 900px){
+	body {
+		grid-template-columns: 100%;
+		grid-template-areas: "header" "curve" "preview" "library" "footer";
+		padding: 2rem 5% 1rem;
+	}
+
+		body > footer {
+			transform: none;
+			position: static;
+			padding: .5rem 0;
+		}
+
+	#copybuttons {
+		display: flex;
+	}
+
+	#copyoptions {
+		border-radius: 0 .2em .2em .2em;
+		right: unset;
+		left: 0;
 	}
 
 	#library {
-		margin-left: 490px;
+		padding: 0;
 	}
 
+		#library > aside {
+			margin: 0 -5%;
+		}
+
+}
+
+@media (max-width: 500px){
 	header .permalink {
-		float: left;
-	}
-
-	#copybuttons {
-		padding-left: 0.35em;
+		letter-spacing: -0.1ch;
 	}
 }
 
