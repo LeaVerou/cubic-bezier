@@ -257,6 +257,7 @@ header {
 #curve-display {
 	grid-area: curve;
 	justify-self: center;
+	margin-top: 2rem;
 }
 
 .coordinate-plane {
@@ -413,6 +414,7 @@ section {}
 #library {
 	grid-area: library;
 	padding-right: 5%;
+	max-width: max-content;
 }
 
 	#library > a {
@@ -588,9 +590,11 @@ body > footer {
 		gap: 1rem;
 		padding-right: 1rem;
 	}
+
+
 }
 
-@media (max-width: 900px){
+@media (max-width: 768px){
 	body {
 		grid-template-columns: 100%;
 		grid-template-areas: "header" "curve" "preview" "library" "footer";
@@ -611,6 +615,10 @@ body > footer {
 		border-radius: 0 .2em .2em .2em;
 		right: unset;
 		left: 0;
+	}
+
+	#curve-display {
+		margin: 0;
 	}
 
 	#library {
