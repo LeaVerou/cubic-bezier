@@ -31,10 +31,6 @@
 #preview > canvas,
 #library > a,
 header > p {
-	-moz-transition: 1s;
-	-ms-transition: 1s;
-	-o-transition: 1s;
-	-webkit-transition: 1s;
 	transition: 1s;
 }
 
@@ -248,10 +244,7 @@ header > p {
 		left: 0;
 		width: 100%;
 		padding: .3em .5em;
-
-		-moz-box-sizing: border-box;
 		box-sizing: border-box;
-
 		color: rgba(0,0,0,.6);
 		text-transform: uppercase;
 		font-size: 75%;
@@ -260,17 +253,7 @@ header > p {
 
 	.coordinate-plane:before {
 		content: 'Progression';
-
 		border-bottom: 1px solid;
-
-		-moz-transform: rotate(-90deg);
-		-moz-transform-origin: bottom left;
-		-ms-transform: rotate(-90deg);
-		-ms-transform-origin: bottom left;
-		-o-transform: rotate(-90deg);
-		-o-transform-origin: bottom left;
-		-webkit-transform: rotate(-90deg);
-		-webkit-transform-origin: bottom left;
 		transform: rotate(-90deg);
 		transform-origin: bottom left;
 	}
@@ -303,12 +286,8 @@ header > p {
 	border: 1px solid rgba(0,0,0,.3);
 	margin: -10px 0 0 -10px;
 	outline: none;
-
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-
-	 -moz-border-radius: 10px;
-	 border-radius: 10px;
+	border-radius: 10px;
 }
 
 #P0, #P3 {
@@ -348,25 +327,12 @@ header > p {
 
 canvas#curve {
 	background: #f0f0f0;
-	background: -moz-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%, transparent) center no-repeat,
-		-moz-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-moz-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
-	background: -ms-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
-		-ms-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-ms-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
-	background: -o-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
-		-o-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-o-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
-	background: -webkit-linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
-		-webkit-repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
-		-webkit-linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
 	background: linear-gradient(-45deg, transparent 49%, rgba(0,0,0,.1) 49%, rgba(0,0,0,.1) 51%, transparent 51%) center no-repeat,
 		repeating-linear-gradient(white, white 20px, transparent 20px, transparent 40px) no-repeat,
 		linear-gradient(transparent, rgba(0,0,0,.06) 25%, rgba(0,0,0,.06) 75%, transparent);
 	background-size: 100% 50%, 100% 50%, auto;
 	background-position: 25%, 0, 0;
 
-	-moz-user-select: none;
 	-webkit-user-select: none;
 	user-select: none;
 }
@@ -433,10 +399,6 @@ section {
 }
 	#library > a > canvas,
 	#library > a > span {
-		-moz-transition: inherit;
-		-ms-transition: inherit;
-		-o-transition: inherit;
-		-webkit-transition: inherit;
 		transition: inherit;
 	}
 
@@ -560,15 +522,6 @@ body > footer {
 	white-space: nowrap;
 	font-size: 120%;
 	color: rgba(0, 0, 0, .1);
-
-	-moz-transform: rotate(-90deg);
-	-moz-transform-origin: top right;
-	-ms-transform: rotate(-90deg);
-	-ms-transform-origin: top right;
-	-o-transform: rotate(-90deg);
-	-o-transform-origin: top right;
-	-webkit-transform: rotate(-90deg);
-	-webkit-transform-origin: top right;
 	transform: rotate(-90deg);
 	transform-origin: top right;
 }
