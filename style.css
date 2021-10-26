@@ -92,6 +92,7 @@ button:hover, .button:hover {
 button:focus, .button:focus {
 	box-shadow: 0 0 5px 2px yellow;
 }
+
 #copybuttons {
 	display: flex;
 	padding: 0.35em;
@@ -99,19 +100,22 @@ button:focus, .button:focus {
 	width: 85px;
 	position: relative;
 }
+
 #copybuttons.copyoptions-open {
 	width: auto;
 }
-#copybuttons.copyoptions-open #copy{
+
+#copybuttons.copyoptions-open #copy {
 	background-color: #f08;
 	border-bottom-left-radius: 0;
 }
 
-#copybuttons.copyoptions-open  #copyoptionstoggle {
+#copybuttons.copyoptions-open #copyoptionstoggle {
 	background-color: #a50b5d;
 	border-bottom-right-radius: 0;
 	box-shadow: none;
 }
+
 #copy {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
@@ -119,21 +123,23 @@ button:focus, .button:focus {
 	display: block;
 	
 }
-#copyoptions{
+
+#copyoptions {
 	position: absolute;
-	top:42px;
+	top: 42px;
 	background-color: #f08;
-	padding:0.2em 0.3em;
+	padding: 0.2em 0.3em;
 	border-radius: 0 .2em .2em;
 	overflow: hidden;
 	z-index: 2;
-	opacity:0;
+	opacity: 0;
 	font-size: 0.1em;
 	transition: height 0.5s cubic-bezier(.1,.74,.33,.95);
 	height: 20px;
 	pointer-events: none;
 }
-#copyoptions > input{
+
+#copyoptions > input {
 	opacity: 1;
 	background-color: #f08;
 	margin-bottom: 0.4em;
@@ -142,46 +148,56 @@ button:focus, .button:focus {
 	text-transform: none;
 	font-size: 0.65em;
 	font-weight: 700;
-	color:#fff;
-	border:0;
+	color: #fff;
+	border: 0;
 	cursor: pointer;
-	padding:0.2em 0.3em;
+	padding: 0.2em 0.3em;
 	border-radius: 0.2em;
 	font-family: monospace;
 }
-#copyoptions > button > code{
+
+#copyoptions > button > code {
 	font-size: 1.2em;
 }
-#copyoptions > input:hover{
+
+#copyoptions > input:hover {
 	background: #a50b5d;
 }
-#copybuttons.copyoptions-open  #copyoptions{
-	opacity:1;
+
+#copybuttons.copyoptions-open #copyoptions {
+	opacity: 1;
 	font-size: 1em;
 	height: 125px;
 	pointer-events: auto;
 }
-#copyoptionstoggle{
+
+#copyoptionstoggle {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 	padding-left: 0.3em;
 	display: block;
 }
 
-	#copybuttons:hover #copy, #copybuttons:hover #copyoptionstoggle {
-		
+	#copybuttons:hover #copy,
+	#copybuttons:hover #copyoptionstoggle {
 		background: #f08;
 	}
-	#copybuttons #copy:hover, #copybuttons #copyoptionstoggle:hover, #copybuttons.copyoptions-open:hover  #copyoptionstoggle{
+
+	#copybuttons #copy:hover,
+	#copybuttons #copyoptionstoggle:hover,
+	#copybuttons.copyoptions-open:hover #copyoptionstoggle {
 		background: #a50b5d;
 	}
+
 @keyframes copied {
-  0%   { background: #599133; }
-  100% { background: #ccc; }
+	0%   { background: #599133; }
+	100% { background: #ccc; }
 }
-#copybuttons.copied  #copyoptionstoggle, #copybuttons.copied  #copy{
+#copybuttons.copied #copyoptionstoggle,
+#copybuttons.copied #copy {
 	animation: 1s copied cubic-bezier(.51,.2,.81,.48);
 }
+
 input[type="range"] {
 	-webkit-appearance: none;
 	overflow: hidden;
@@ -212,11 +228,13 @@ input[type="range"] {
 header > h1 {
 	white-space: nowrap;
 }
-	header > h1:after {
+
+	header > h1::after {
 	content: "";
 	display: table;
 	clear: both;
 	}
+
 header > p {
 	max-height: 0;
 	overflow: hidden;
@@ -237,8 +255,9 @@ header > p {
 	left: 0;
 	line-height: 0;
 }
-	.coordinate-plane:before,
-	.coordinate-plane:after {
+
+	.coordinate-plane::before,
+	.coordinate-plane::after {
 		position: absolute;
 		bottom: 25%;
 		left: 0;
@@ -251,33 +270,35 @@ header > p {
 		line-height: 1;
 	}
 
-	.coordinate-plane:before {
+	.coordinate-plane::before {
 		content: 'Progression';
 		border-bottom: 1px solid;
 		transform: rotate(-90deg);
 		transform-origin: bottom left;
 	}
 
-	.coordinate-plane:after {
+	.coordinate-plane::after {
 		content: 'Time';
 		border-top: 1px solid;
 		margin-bottom: -1.5em;
 	}
 
-	.coordinate-plane:hover:before {
+	.coordinate-plane:hover::before {
 		content: 'Progression (' attr(data-progression) '%)';
 	}
 
-	.coordinate-plane:hover:after {
+	.coordinate-plane:hover::after {
 		content: 'Time (' attr(data-time) '%)';
 	}
+
 #save {
 	position: absolute;
 	bottom: 90px;
 	z-index: 0;
-	right:1em;
+	right: 1em;
 	font-size: 1em;
 }
+
 .control-point {
 	position: absolute;
 	z-index: 1;
@@ -362,7 +383,7 @@ section {
 	padding-right: 80px;
 }
 
-	#preview:after {
+	#preview::after {
 		content: "";
 		display: block;
 		clear: both;
@@ -397,6 +418,7 @@ section {
 	cursor: pointer;
 
 }
+
 	#library > a > canvas,
 	#library > a > span {
 		transition: inherit;
@@ -548,7 +570,7 @@ body > footer {
 	right: 10px;
 }
 
-@media (min-width:1330px) {
+@media (min-width: 1330px) {
 	#preview {
 		float: left;
 		width: 400px;
@@ -557,12 +579,15 @@ body > footer {
 	#library {
 		margin-left: 490px;
 	}
+
 	header .permalink {
 		float: left;
 	}
+
 	#copybuttons {
 		padding-left: 0.35em;
 	}
+
 }
 
 /* Carbon Ads */
