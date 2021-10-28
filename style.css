@@ -565,7 +565,7 @@ body > footer {
 	}
 
 .twitter-share-button {
-	position: fixed;
+	position: fixed !important;
 	top: 10px;
 	right: 10px;
 }
