@@ -564,12 +564,6 @@ body > footer {
 		background: #ddd;
 	}
 
-.twitter-share-button {
-	position: fixed !important;
-	top: 10px;
-	right: 10px;
-}
-
 @media (min-width: 1330px) {
 	#preview {
 		float: left;
