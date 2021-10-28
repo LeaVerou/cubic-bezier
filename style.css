@@ -69,6 +69,7 @@ a:hover {
 }
 
 	h1 > a {
+		white-space: nowrap;
 		color: inherit;
 		text-decoration: none;
 	}
@@ -94,9 +95,8 @@ button:focus, .button:focus {
 }
 
 #copybuttons {
-	display: flex;
-	padding: 0.35em;
-	padding-left: 0;
+	display: inline-flex;
+	vertical-align: middle;
 	width: 85px;
 	position: relative;
 }
@@ -126,10 +126,11 @@ button:focus, .button:focus {
 
 #copyoptions {
 	position: absolute;
-	top: 42px;
+	top: 100%;
+	right: 0;
 	background-color: #f08;
 	padding: 0.2em 0.3em;
-	border-radius: 0 .2em .2em;
+	border-radius: .2em 0 .2em .2em;
 	overflow: hidden;
 	z-index: 2;
 	opacity: 0;
@@ -226,28 +227,8 @@ input[type="range"] {
 	}
 
 header > h1 {
-	white-space: nowrap;
+	display: flow-root;
 }
-
-	header > h1::after {
-	content: "";
-	display: table;
-	clear: both;
-	}
-
-header > p {
-	max-height: 0;
-	overflow: hidden;
-	color: #999;
-	font-size: 90%;
-	font-weight: normal;
-}
-
-	header > p > code {
-		color: black;
-		font-weight: bold;
-		white-space: nowrap;
-	}
 
 .coordinate-plane {
 	position: absolute;
@@ -572,14 +553,6 @@ body > footer {
 
 	#library {
 		margin-left: 490px;
-	}
-
-	header .permalink {
-		float: left;
-	}
-
-	#copybuttons {
-		padding-left: 0.35em;
 	}
 
 }
