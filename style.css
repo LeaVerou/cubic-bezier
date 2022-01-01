@@ -43,12 +43,33 @@ code {
  * Styles
  */
 body {
+	display: grid;
+	grid-template:
+		'curve header header' auto
+		'curve preview library' auto
+		'curve . .' auto / 300px 480px 1fr;
+	gap: 2rem;
 	position: relative;
 	margin: 1em 5% 0;
-	padding-left: 330px;
 	background: white;
 	font-family: 'Hiragino Kaku Gothic Pro', 'Segoe UI', 'Apple Gothic', Tahoma, 'Helvetica Neue', sans-serif;
 	line-height: 1.4;
+}
+
+header {
+	grid-area: header;
+}
+
+#curve-display {
+	grid-area: curve;
+}
+
+#preview {
+	grid-area: preview;
+}
+
+#library {
+	grid-area: library;
 }
 
 h1 {
@@ -231,10 +252,8 @@ header > h1 {
 }
 
 .coordinate-plane {
-	position: absolute;
-	top: 1em;
-	left: 0;
-	line-height: 0;
+	position: relative;
+	margin-top: 2rem;
 }
 
 	.coordinate-plane::before,
@@ -339,9 +358,7 @@ canvas#curve {
 	user-select: none;
 }
 
-section {
-	margin: 2em 0;
-}
+section {}
 
 	section > h1 {
 		margin-bottom: .2em;
@@ -545,16 +562,14 @@ body > footer {
 		background: #ddd;
 	}
 
-@media (min-width: 1330px) {
-	#preview {
-		float: left;
-		width: 400px;
-	}
 
-	#library {
-		margin-left: 490px;
+@media (max-width: 1330px){
+	body {
+		grid-template:
+			'curve header' auto
+			'curve preview' auto
+			'curve library' auto / 300px 1fr;
 	}
-
 }
 
 /* Carbon Ads */
