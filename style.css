@@ -237,7 +237,7 @@ header {
 
 	header > h1 {
 		display: flow-root;
-}
+	}
 
 #curve-display {
 	grid-area: curve;
