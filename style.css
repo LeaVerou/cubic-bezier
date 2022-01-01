@@ -56,22 +56,6 @@ body {
 	line-height: 1.4;
 }
 
-header {
-	grid-area: header;
-}
-
-#curve-display {
-	grid-area: curve;
-}
-
-#preview {
-	grid-area: preview;
-}
-
-#library {
-	grid-area: library;
-}
-
 h1 {
 	font-size: 220%;
 }
@@ -247,8 +231,16 @@ input[type="range"] {
 		width: 14em;
 	}
 
-header > h1 {
-	display: flow-root;
+header {
+	grid-area: header;
+}
+
+	header > h1 {
+		display: flow-root;
+}
+
+#curve-display {
+	grid-area: curve;
 }
 
 .coordinate-plane {
@@ -377,6 +369,7 @@ section {}
 }
 
 #preview {
+	grid-area: preview;
 	position: relative;
 	padding-right: 80px;
 }
@@ -403,6 +396,10 @@ section {}
 	#preview > .move {
 		left: 100%;
 	}
+
+#library {
+	grid-area: library;
+}
 
 #library > a {
 	position: relative;
