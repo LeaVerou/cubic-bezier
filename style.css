@@ -60,11 +60,6 @@ h1 {
 	font-size: 220%;
 }
 
-h2 {
-	font-size: 16px;
-	margin: 20px 0 0 0;
-}
-
 a {
 	color: #f08;
 }
@@ -160,10 +155,6 @@ button:focus, .button:focus {
 	padding: 0.2em 0.3em;
 	border-radius: 0.2em;
 	font-family: monospace;
-}
-
-#copyoptions > button > code {
-	font-size: 1.2em;
 }
 
 #copyoptions > input:hover {
@@ -362,11 +353,6 @@ section {}
 		margin: -.5em 0 1em 0;
 		color: gray;
 	}
-
-#settings > h1 {
-	display: inline-block;
-	font-size: 100%;
-}
 
 #preview {
 	grid-area: preview;
