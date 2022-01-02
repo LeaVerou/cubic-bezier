@@ -50,7 +50,7 @@ body {
 		'curve . .' auto / 300px 480px 1fr;
 	gap: 2rem;
 	position: relative;
-	margin: 1em 5% 0;
+	margin: 1em max(3rem, 5%) 0;
 	background: white;
 	font-family: 'Hiragino Kaku Gothic Pro', 'Segoe UI', 'Apple Gothic', Tahoma, 'Helvetica Neue', sans-serif;
 	line-height: 1.4;
@@ -357,14 +357,7 @@ section {}
 #preview {
 	grid-area: preview;
 	position: relative;
-	padding-right: 80px;
 }
-
-	#preview::after {
-		content: "";
-		display: block;
-		clear: both;
-	}
 
 	#preview > canvas {
 		display: block;
@@ -381,6 +374,7 @@ section {}
 
 	#preview > .move {
 		left: 100%;
+		transform: translateX(-100%);
 	}
 
 #library {
