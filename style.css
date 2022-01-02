@@ -360,6 +360,12 @@ section {}
 	padding-right: 80px;
 }
 
+	#preview::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
 	#preview > canvas {
 		display: block;
 		position: relative;
