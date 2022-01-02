@@ -50,7 +50,7 @@ body {
 		'curve . .' auto / 300px 480px 1fr;
 	gap: 2rem;
 	position: relative;
-	margin: 1em max(3rem, 5%) 0;
+	padding: 1em max(3rem, 5%);
 	background: white;
 	font-family: 'Hiragino Kaku Gothic Pro', 'Segoe UI', 'Apple Gothic', Tahoma, 'Helvetica Neue', sans-serif;
 	line-height: 1.4;
@@ -97,7 +97,6 @@ button:focus, .button:focus {
 #copybuttons {
 	display: inline-flex;
 	vertical-align: middle;
-	width: 85px;
 	position: relative;
 }
 
@@ -232,6 +231,7 @@ header {
 
 #curve-display {
 	grid-area: curve;
+	justify-self: center;
 }
 
 .coordinate-plane {
@@ -512,6 +512,7 @@ section {}
 	}
 
 body > footer {
+	grid-area: footer;
 	position: fixed;
 	top: 0;
 	right: 100%;
@@ -521,6 +522,7 @@ body > footer {
 	color: rgba(0, 0, 0, .1);
 	transform: rotate(-90deg);
 	transform-origin: top right;
+	box-sizing: border-box;
 }
 
 	body > footer > a {
@@ -539,13 +541,89 @@ body > footer {
 		background: #ddd;
 	}
 
-
 @media (max-width: 1330px){
 	body {
 		grid-template:
 			'curve header' auto
 			'curve preview' auto
 			'curve library' auto / 300px 1fr;
+	}
+}
+
+@media (max-width: 1000px){
+	body {
+		grid-template:
+			'header header' auto
+			'curve preview' auto
+			'curve library' auto / 300px 1fr;
+	}
+
+	header {
+		text-align: center;
+	}
+
+	header > h1 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media (max-width: 850px){
+	body {
+		grid-template:
+			'header' auto
+			'curve' auto
+			'preview' auto
+			'library' auto / auto;
+	}
+
+	h1 > a {
+		font-size: 0.8em;
+	}
+
+	#copybuttons {
+		margin-left: auto;
+	}
+}
+
+@media (max-width: 768px){
+	body {
+		grid-template:
+			'footer' auto
+			'header' auto
+			'curve' auto
+			'preview' auto
+			'library' auto / auto;
+		padding: 0 5% 1em;
+	}
+
+	body > footer {
+		padding: .5em 0;
+		position: static;
+		max-width: 100%;
+		transform: none;
+		white-space: normal;
+	}
+
+	h1 > a {
+		font-size: 0.8em;
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px){
+	h1 > a {
+		font-size: 0.7em;
+		letter-spacing: -.05ch;
+	}
+}
+
+@media (max-width: 450px){
+	h1 > a {
+		font-size: 0.6em;
+		letter-spacing: -.05ch;
 	}
 }
 
