@@ -573,24 +573,6 @@ body > footer {
 @media (max-width: 850px){
 	body {
 		grid-template:
-			'header' auto
-			'curve' auto
-			'preview' auto
-			'library' auto / auto;
-	}
-
-	h1 > a {
-		font-size: 0.8em;
-	}
-
-	#copybuttons {
-		margin-left: auto;
-	}
-}
-
-@media (max-width: 768px){
-	body {
-		grid-template:
 			'footer' auto
 			'header' auto
 			'curve' auto
@@ -610,6 +592,10 @@ body > footer {
 	h1 > a {
 		font-size: 0.8em;
 		width: 100%;
+	}
+
+	#copybuttons {
+		margin-left: auto;
 	}
 }
 
